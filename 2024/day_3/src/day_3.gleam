@@ -1,4 +1,7 @@
+import gleam/int
 import gleam/io
+import gleam/list
+import gleam/regexp
 import simplifile
 
 pub fn main() {
@@ -9,7 +12,19 @@ pub fn main() {
     Error(_) -> ""
   }
 
-  string
+  let assert Ok(mul_re) = regexp.from_string("mul\\(\\d+,\\d+\\)")
+  let assert Ok(numbers_re) = regexp.from_string("\\d+")
 
-  io.debug(data)
+  let value =
+    regexp.scan(with: mul_re, content: data)
+    |> list.fold(0, fn(sum, match) {
+      regexp.scan(with: numbers_re, content: match.content)
+      |> list.fold(1, fn(product, capture) {
+        let assert Ok(num) = int.parse(capture.content)
+        product * num
+      })
+      |> int.add(sum)
+    })
+
+  io.debug(value)
 }
