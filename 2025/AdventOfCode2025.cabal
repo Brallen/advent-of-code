@@ -1,0 +1,23 @@
+cabal-version:      3.14
+name:               AdventOfCode2025
+
+version:            1.0.0
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             Brett
+maintainer:         24304042+Brallen@users.noreply.github.com
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+
+
+common warnings
+    ghc-options: -Wall
+
+executable AdventOfCode2025
+    import:           warnings
+    main-is:          Main.hs
+    hs-source-dirs:   app
+    default-language: GHC2024
+    build-depends:    base ^>=4.20.2.0
+    other-modules:    Days.One
+

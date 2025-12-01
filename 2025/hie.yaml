@@ -1,0 +1,7 @@
+cradle:
+  cabal:
+    - path: "app/Main.hs"
+      component: "AdventOfCode2025:exe:AdventOfCode2025"
+
+    - path: "app/Days/One.hs"
+      component: "AdventOfCode2025:exe:AdventOfCode2025"
