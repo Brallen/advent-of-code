@@ -1,6 +1,6 @@
 module Main (main) where
 
-import Days.One (test)
+import Days.One (dayOne)
 
 main :: IO ()
-main = putStrLn $ "Hello, Haskell!" <> test
+main = dayOne
